@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<sdf version="1.9">
+  <world name="lunar_south_pole">
+
+    <physics name="physics" type="ignored">
+      <max_step_size>0.004</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+
+    <scene>
+      <ambient>0.015 0.015 0.02 1</ambient>
+      <background>0 0 0 1</background>
+      <shadows>true</shadows>
+    </scene>
+
+    <!-- Low-angle sunlight: approximately 1.5 degrees above horizon -->
+    <light name="south_pole_sun" type="directional">
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 100 0 0 0</pose>
+      <diffuse>1.0 0.96 0.88 1</diffuse>
+      <specular>0.08 0.08 0.08 1</specular>
+      <direction>-0.999657 0 -0.026177</direction>
+      <attenuation>
+        <range>100000</range>
+        <constant>1.0</constant>
+        <linear>0.0</linear>
+        <quadratic>0.0</quadratic>
+      </attenuation>
+    </light>
+
+    <!-- Lunar terrain -->
+    <include>
+      <uri>model://lunar_terrain_8042</uri>
+      <name>lunar_south_pole_terrain</name>
+      <pose>0 0 0 0 0 0</pose>
+      <static>true</static>
+    </include>
+
+  </world>
+</sdf>
